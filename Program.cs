@@ -20,9 +20,8 @@ namespace nksd_overload_reporting
 
             string output = "";
             SqlConnection connection = new SqlConnection("server = skywarddata; integrated security = true;");
-            SqlCommand command = new SqlCommand(query, connection);
             connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = new SqlCommand(query, connection).ExecuteReader();
             while (reader.Read())
             {
                 output += reader["School"] + "," + reader["Section"] + '\n';
