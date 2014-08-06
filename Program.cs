@@ -22,16 +22,21 @@ namespace nksd_overload_reporting
             SqlConnection connection = new SqlConnection("server = skywarddata; integrated security = true;");
             connection.Open();
             SqlDataReader reader = new SqlCommand(query, connection).ExecuteReader();
-            while (reader.Read())
-            {
-                output += reader["School"] + "," + reader["Section"] + '\n';
-            }
-            connection.Close();
-            reader.Close();
 
             string folder = "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
             Directory.CreateDirectory(folder);
-            File.WriteAllText(folder + "\\mike-smith.csv", output);
+
+            while (reader.Read())
+            {
+                if (!reader["firstname"].ToString().Contains('/') && !reader["lastname"].ToString().Contains('/'))
+                {
+                    //output += reader["School"] + "," + reader["Section"] + '\n';
+                    File.WriteAllText(folder + "\\" + reader["FirstName"] + " " + reader["LastName"] + ".csv", output);
+                    Console.WriteLine(folder + "\\" + reader["FirstName"] + " " + reader["LastName"] + ".csv");
+                }
+            }
+            connection.Close();
+            reader.Close();
         }
     }
 }

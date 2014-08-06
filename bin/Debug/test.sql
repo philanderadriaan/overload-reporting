@@ -1,2 +1,2 @@
 select *
-from classsizes.dbo.classes
+from adsync.dbo.staff2
