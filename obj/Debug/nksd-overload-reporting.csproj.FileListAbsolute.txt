@@ -1,1 +1,6 @@
 \\dofp\dousers\Staff\Class\padriaan\Visual Studio 2013\Projects\nksd-overload-reporting\bin\Debug\nksd-overload-reporting.exe.config
+\\dofp\dousers\Staff\Class\padriaan\Visual Studio 2013\Projects\nksd-overload-reporting\obj\Debug\nksd-overload-reporting.csprojResolveAssemblyReference.cache
+\\dofp\dousers\Staff\Class\padriaan\Visual Studio 2013\Projects\nksd-overload-reporting\bin\Debug\nksd-overload-reporting.exe
+\\dofp\dousers\Staff\Class\padriaan\Visual Studio 2013\Projects\nksd-overload-reporting\bin\Debug\nksd-overload-reporting.pdb
+\\dofp\dousers\Staff\Class\padriaan\Visual Studio 2013\Projects\nksd-overload-reporting\obj\Debug\nksd-overload-reporting.exe
+\\dofp\dousers\Staff\Class\padriaan\Visual Studio 2013\Projects\nksd-overload-reporting\obj\Debug\nksd-overload-reporting.pdb
