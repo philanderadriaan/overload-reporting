@@ -18,22 +18,17 @@ namespace nksd_overload_reporting
                 query += line + "\n";
             }
 
-            string connectionString = "Server=SKYWARDDATA; Integrated Security=True;";
-
-
             string output = "";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            SqlConnection connection = new SqlConnection("server = skywarddata; integrated security = true;");
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    output += reader["School"] + "," + reader["Section"] + '\n';
-                }
-
-                reader.Close();
+                output += reader["School"] + "," + reader["Section"] + '\n';
             }
+            connection.Close();
+            reader.Close();
 
             string folder = "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
             Directory.CreateDirectory(folder);
