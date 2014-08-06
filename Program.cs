@@ -12,10 +12,13 @@ namespace nksd_overload_reporting
     {
         static void Main(string[] args)
         {
-            foreach (string s in File.ReadLines("sql-2000-query-1.sql"))
+            StringBuilder query_builder = new StringBuilder();
+            foreach (string line in File.ReadLines("sql-2000-query-1.sql"))
             {
-                Console.WriteLine(s);
+                query_builder.Append(line);
+                query_builder.Append('\n');
             }
+            Console.WriteLine(query_builder.ToString());
         }
     }
 }
