@@ -12,8 +12,10 @@ namespace nksd_overload_reporting
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("test");
-            IEnumerable<string> e = File.ReadLines("sql-2000-query-1");
+            foreach (string s in File.ReadLines("sql-2000-query-1.sql"))
+            {
+                Console.WriteLine(s);
+            }
         }
     }
 }
