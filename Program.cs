@@ -19,8 +19,10 @@ namespace nksd_overload_reporting
                 query_builder.Append('\n');
             }
 
-            Directory.CreateDirectory("a\\");
-            File.WriteAllLines("a\\output.txt", File.ReadLines("sql-2000-query-1.sql"));
+            string folder = "reports\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
+
+            Directory.CreateDirectory(folder);
+            File.WriteAllLines(folder + "\\mike-smith.csv", File.ReadLines("sql-2000-query-1.sql"));
         }
     }
 }
