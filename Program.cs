@@ -18,8 +18,9 @@ namespace nksd_overload_reporting
                 query_builder.Append(line);
                 query_builder.Append('\n');
             }
-            //Console.WriteLine(query_builder.ToString());
-            File.WriteAllLines("output.txt", File.ReadLines("sql-2000-query-1.sql"));
+
+            Directory.CreateDirectory("a\\");
+            File.WriteAllLines("a\\output.txt", File.ReadLines("sql-2000-query-1.sql"));
         }
     }
 }
