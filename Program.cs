@@ -12,39 +12,32 @@ namespace nksd_overload_reporting
     {
         static void Main(string[] args)
         {
-            StringBuilder query_builder = new StringBuilder();
+            string query = "";
             foreach (string line in File.ReadLines("test.sql"))
             {
-                query_builder.Append(line);
-                query_builder.Append('\n');
+                query += line + "\n";
             }
 
-            string queryString = query_builder.ToString();
             string connectionString = "Server=SKYWARDDATA; Integrated Security=True;";
 
+
+            string output = "";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(queryString, connection);
+                SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                try
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(String.Format("{0}, {1}",
-                        reader["School"], reader["Section"]));// etc
-                    }
+                    output += reader["School"] + "," + reader["Section"] + '\n';
                 }
-                finally
-                {
-                    // Always call Close when done reading.
-                    reader.Close();
-                }
+
+                reader.Close();
             }
 
-            string folder = "reports\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
+            string folder = "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
             Directory.CreateDirectory(folder);
-            File.WriteAllLines(folder + "\\mike-smith.csv", File.ReadLines("sql-2000-query-1.sql"));
+            File.WriteAllText(folder + "\\mike-smith.csv", output);
         }
     }
 }
