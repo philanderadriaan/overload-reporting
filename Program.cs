@@ -14,22 +14,38 @@ namespace nksd_overload_reporting
         static void Main(string[] args)
         {
             string query = "";
-            foreach (string line in File.ReadLines("test.sql"))
+
+            string file_name = "test.sql";
+            IEnumerable<string> lines = File.ReadLines(file_name);
+
+            foreach (string line in lines)
             {
                 query += line + "\n";
             }
 
-            string output = "";
-            SqlConnection connection = new SqlConnection("server = skywarddata; integrated security = true;");
+            string server_info = "server = skywarddata; integrated security = true;";
+            SqlConnection connection = new SqlConnection(server_info);
             connection.Open();
-            SqlDataReader reader = new SqlCommand(query, connection).ExecuteReader();
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
 
-            string folder = "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
-            Directory.CreateDirectory(folder);
+            string folder_name = "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month;
+            Directory.CreateDirectory(folder_name);
+
+            string output = "";
 
             while (reader.Read())
             {
-                File.WriteAllText(folder + "\\" + Regex.Replace(reader["firstname"].ToString(), "[^a-zA-Z0-9]+", " ") + " " + Regex.Replace(reader["lastname"].ToString(), "[^a-zA-Z0-9]+", " ") + ".csv", output);
+                int column_count = reader.FieldCount;
+                object[] values = new object[column_count];
+                reader.GetValues(values);
+                string row = string.Join(", ", values);
+                output += row + "\n";
+
+                string first = Regex.Replace(reader["firstname"].ToString(), "[^a-zA-Z0-9]+", " ");
+                string last = Regex.Replace(reader["lastname"].ToString(), "[^a-zA-Z0-9]+", " ");
+                string path = folder_name + "\\" + first + " " + last + ".csv"; 
+                File.WriteAllText(path, output);
             }
 
             connection.Close();
