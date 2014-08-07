@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace nksd_overload_reporting
@@ -28,13 +29,9 @@ namespace nksd_overload_reporting
 
             while (reader.Read())
             {
-                if (!reader["firstname"].ToString().Contains('/') && !reader["lastname"].ToString().Contains('/'))
-                {
-                    //output += reader["School"] + "," + reader["Section"] + '\n';
-                    File.WriteAllText(folder + "\\" + reader["FirstName"] + " " + reader["LastName"] + ".csv", output);
-                    Console.WriteLine(folder + "\\" + reader["FirstName"] + " " + reader["LastName"] + ".csv");
-                }
+                File.WriteAllText(folder + "\\" + Regex.Replace(reader["firstname"].ToString(), "[^a-zA-Z0-9]+", " ") + " " + Regex.Replace(reader["lastname"].ToString(), "[^a-zA-Z0-9]+", " ") + ".csv", output);
             }
+
             connection.Close();
             reader.Close();
         }
