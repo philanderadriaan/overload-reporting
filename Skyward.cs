@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace nksd_overload_reporting
 {
-    class SkywardData
+    class Skyward
     {
-        public SkywardData()
+        public Skyward()
         {
 
         }
