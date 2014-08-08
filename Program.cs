@@ -15,7 +15,7 @@ namespace nksd_overload_reporting
         {
             string query = "";
 
-            string file_name = "test.sql";
+            string file_name = "sql-query\\test.sql";
             IEnumerable<string> lines = File.ReadLines(file_name);
 
             foreach (string line in lines)
