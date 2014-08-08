@@ -12,5 +12,15 @@ namespace nksd_overload_reporting
         {
 
         }
+
+        public void read(string file_name)
+        {
+
+        }
+
+        public void write(string file_name)
+        {
+
+        }
     }
 }
