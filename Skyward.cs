@@ -21,6 +21,8 @@ namespace nksd_overload_reporting
         public void read(string query_file)
         {
             string query = "";
+
+            string query_path = "sql-query\\" + query_file;
             IEnumerable<string> lines = File.ReadLines(query_file);
             foreach (string line in lines)
             {
@@ -32,7 +34,6 @@ namespace nksd_overload_reporting
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader reader = command.ExecuteReader();
 
-            string output = "";
             while (reader.Read())
             {
                 int column_count = reader.FieldCount;
@@ -43,11 +44,18 @@ namespace nksd_overload_reporting
 
             connection.Close();
             reader.Close();
+
+            foreach (string[] i in data)
+            {
+            string row = string.Join(", ", i);
+                Console.WriteLine(row);
+            //output += row + "\n";
+        }
         }
 
         public void write(string output_file)
         {
-
+            string output = "";
         }
     }
 }
