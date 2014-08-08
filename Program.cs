@@ -37,7 +37,7 @@ namespace nksd_overload_reporting
             while (reader.Read())
             {
                 int column_count = reader.FieldCount;
-                object[] values = new object[column_count];
+                string[] values = new string[column_count];
                 reader.GetValues(values);
                 string row = string.Join(", ", values);
                 output += row + "\n";
