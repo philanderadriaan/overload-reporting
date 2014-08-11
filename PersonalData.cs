@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace nksd_overload_reporting
 {
-    class Skyward
+    class PersonalData
     {
         List<object[]> data = new List<object[]>();
 
-        public Skyward()
+        public PersonalData()
         {
 
         }
@@ -56,6 +56,7 @@ namespace nksd_overload_reporting
         public void write(string output_file)
         {
             string output = "";
+
         }
     }
 }
