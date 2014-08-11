@@ -54,7 +54,6 @@ namespace nksd_overload_reporting
             {
                 //output_path += line;
             }
-
             Console.WriteLine(output_path + output_file);
         }
     }
