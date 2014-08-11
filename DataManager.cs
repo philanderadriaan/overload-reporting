@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace nksd_overload_reporting
 {
-    class PersonalData
+    class DataManager
     {
         List<object[]> data = new List<object[]>();
 
-        public PersonalData()
+        public DataManager()
         {
 
         }
@@ -21,9 +21,8 @@ namespace nksd_overload_reporting
         public void read(string query_file)
         {
             string query = "";
-
             string query_path = "sql-query\\" + query_file;
-            IEnumerable<string> lines = File.ReadLines(query_file);
+            IEnumerable<string> lines = File.ReadLines(query_path);
             foreach (string line in lines)
             {
                 query += line + "\n";
@@ -45,12 +44,13 @@ namespace nksd_overload_reporting
             connection.Close();
             reader.Close();
 
-            foreach (string[] i in data)
+            foreach (object[] i in data)
             {
-            string row = string.Join(", ", i);
+                string row = string.Join(", ", i);
                 Console.WriteLine(row);
-            //output += row + "\n";
-        }
+                Console.WriteLine();
+                //output += row + "\n";
+            }
         }
 
         public void write(string output_file)

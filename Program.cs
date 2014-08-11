@@ -13,6 +13,10 @@ namespace nksd_overload_reporting
     {
         static void Main(string[] args)
         {
+            DataManager manager = new DataManager();
+            manager.read("test.sql");
+
+            /*
             string query = "";
 
             string file_name = "sql-query\\test.sql";
@@ -50,6 +54,7 @@ namespace nksd_overload_reporting
 
             connection.Close();
             reader.Close();
+             * */
         }
     }
 }
