@@ -43,20 +43,19 @@ namespace nksd_overload_reporting
 
             connection.Close();
             reader.Close();
-
-            foreach (object[] i in data)
-            {
-                string row = string.Join(", ", i);
-                Console.WriteLine(row);
-                Console.WriteLine();
-                //output += row + "\n";
-            }
         }
 
         public void write(string output_file)
         {
-            string output = "";
+            string output_path = "";
+            IEnumerable<string> lines = File.ReadLines("report-path.txt");
+            //output_path = ;
+            //foreach (string line in lines)
+            {
+                //output_path += line;
+            }
 
+            Console.WriteLine(output_path + output_file);
         }
     }
 }
