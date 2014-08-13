@@ -11,7 +11,7 @@ namespace nksd_overload_reporting
 {
     class DataManager
     {
-        List<object[]> data = new List<object[]>();
+        List<object[]> data;
 
         public DataManager()
         {
@@ -20,6 +20,8 @@ namespace nksd_overload_reporting
 
         public void read(string query_file)
         {
+            data = new List<object[]>();
+
             string query = "";
             string query_path = "sql-query\\" + query_file;
             IEnumerable<string> lines = File.ReadLines(query_path);
