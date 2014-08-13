@@ -21,7 +21,7 @@ namespace nksd_overload_reporting
 
             foreach (object[] values in data)
             {
-                Console.WriteLine(string.Join(",", values));
+                //Console.WriteLine(string.Join(",", values));
             }
 
             /*

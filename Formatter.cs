@@ -9,21 +9,23 @@ namespace nksd_overload_reporting
 {
     class Formatter
     {
-        private string my_folder = "";
+        private string folder = "";
 
         public Formatter()
         {
-            string path_file_name = "report-path.txt";
+            string path_file_name = "report-path.config";
             IEnumerable<string> lines = File.ReadLines(path_file_name);
             foreach (string line in lines)
             {
-                my_folder += line;
+                folder += line;
             }
+            folder += "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month + "\\";
         }
 
         public string generateReportPath(string file_name)
         {
-            return my_folder + file_name + ".csv";
+            Directory.CreateDirectory(folder);
+            return folder + file_name;
         }
     }
 
