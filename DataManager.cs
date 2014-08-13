@@ -53,6 +53,7 @@ namespace nksd_overload_reporting
             {
                 output_path += line;
             }
+            Directory.CreateDirectory(output_path);
             output_path += output_file;
 
             string output = "";
