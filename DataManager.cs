@@ -49,17 +49,21 @@ namespace nksd_overload_reporting
         {
             string output_path = "";
             IEnumerable<string> lines = File.ReadLines("report-path.txt");
-            output_path = "";
             foreach (string line in lines)
             {
                 output_path += line;
             }
 
-            foreach (object[] row in data)
+            string output = "";
+            foreach (object[] values in data)
             {
-
+                string row = string.Join(",", values);
+                output += row;
+                output += "\n";
             }
 
+
+            Console.WriteLine(output);
             Console.WriteLine(output_path + output_file);
         }
     }

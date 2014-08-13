@@ -15,7 +15,7 @@ namespace nksd_overload_reporting
         {
             DataManager manager = new DataManager();
             manager.read("test.sql");
-            manager.write("mike smith");
+            manager.write("Mike Smith.csv");
 
             /*
             string query = "";
