@@ -66,10 +66,6 @@ namespace nksd_overload_reporting
                 output += row;
                 output += "\n";
             }
-
-            Console.WriteLine(output);
-            Console.WriteLine(output_path);
-
             File.WriteAllText(output_path, output);
         }
 

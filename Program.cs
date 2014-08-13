@@ -17,6 +17,13 @@ namespace nksd_overload_reporting
             manager.read("test.sql");
             manager.write("Mike Smith.csv");
 
+            List<object[]> data = manager.getData();
+
+            foreach (object[] values in data)
+            {
+                Console.WriteLine(string.Join(",", values));
+            }
+
             /*
             string query = "";
 
