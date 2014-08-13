@@ -72,5 +72,10 @@ namespace nksd_overload_reporting
 
             File.WriteAllText(output_path, output);
         }
+
+        public List<object[]> getData()
+        {
+            return data;
+        }
     }
 }
