@@ -53,6 +53,7 @@ namespace nksd_overload_reporting
             {
                 output_path += line;
             }
+            output_path += "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month + "\\";
             Directory.CreateDirectory(output_path);
             output_path += output_file;
 
@@ -63,7 +64,6 @@ namespace nksd_overload_reporting
                 output += row;
                 output += "\n";
             }
-
 
             Console.WriteLine(output);
             Console.WriteLine(output_path);
