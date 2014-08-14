@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace nksd_overload_reporting
@@ -44,6 +45,7 @@ namespace nksd_overload_reporting
                     }
                 }
             }
+            name = Regex.Replace(name, "[^a-zA-Z0-9]+", " ");
             name += ".csv";
             return name;
         }
