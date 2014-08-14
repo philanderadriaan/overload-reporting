@@ -16,11 +16,15 @@ namespace nksd_overload_reporting
             DataManager manager = new DataManager();
             manager.read("test.sql");
 
+            /*
             List<object[]> data = manager.getData();
             foreach (object[] values in data)
             {
                 Console.WriteLine(string.Join(",", values));
             }
+            */
+
+            DataManager m2 = new DataManager();
 
             manager.write("Mike Smith.csv");
         }

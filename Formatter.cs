@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,28 @@ namespace nksd_overload_reporting
         {
             Directory.CreateDirectory(folder);
             return folder + file_name;
+        }
+
+        public string generateFileName(string[] s)
+        {
+            string name = "";
+            Boolean first = true;
+            foreach (string i in s)
+            {
+                if (i.Length > 0)
+                {
+                    if (first)
+                    {
+                        first = false;
+                    }
+                    else
+                    {
+                        name += " " + i;
+                    }
+                }
+            }
+            name += ".csv";
+            return name;
         }
     }
 }
