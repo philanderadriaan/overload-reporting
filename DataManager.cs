@@ -49,20 +49,16 @@ namespace nksd_overload_reporting
 
         public void write(string output_file)
         {
-
             string output = "";
             foreach (object[] values in data)
             {
                 string row = string.Join(",", values);
                 output += row;
                 output += "\n";
+                Console.WriteLine(row);
             }
 
-
             string output_path = new Formatter().generateReportPath(output_file);
-
-            Console.WriteLine(output_path);
-            
             File.WriteAllText(output_path, output);
         }
 
