@@ -15,11 +15,8 @@ namespace nksd_overload_reporting
         {
             string path_file_name = "report-path.config";
             IEnumerable<string> lines = File.ReadLines(path_file_name);
-            foreach (string line in lines)
-            {
-                folder += line;
-            }
-            folder += "report\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month + "\\";
+            string[] line_array = lines.ToArray<string>();
+            folder += line_array[0] + DateTime.Now.Year + "\\" + DateTime.Now.Month + "\\";
         }
 
         public string generateReportPath(string file_name)
@@ -28,6 +25,4 @@ namespace nksd_overload_reporting
             return folder + file_name;
         }
     }
-
-
 }
