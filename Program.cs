@@ -33,7 +33,6 @@ namespace nksd_overload_reporting
                 string name = f.generateFileName(i);
                 manager.write(name);
             }
-
         }
     }
 }
