@@ -26,7 +26,7 @@ namespace nksd_overload_reporting
             return folder + file_name;
         }
 
-        public string generateFileName(string[] s)
+        public string generateFileName(object[] s)
         {
             string name = "";
             Boolean first = true;

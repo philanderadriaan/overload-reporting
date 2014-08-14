@@ -25,8 +25,15 @@ namespace nksd_overload_reporting
             */
 
             DataManager m2 = new DataManager();
+            m2.read("staff.sql");
+            List<object[]> staff = m2.getData();
+            foreach (object[] i in staff)
+            {
+                Formatter f = new Formatter();
+                string name = f.generateFileName(i);
+                manager.write(name);
+            }
 
-            manager.write("Mike Smith.csv");
         }
     }
 }
