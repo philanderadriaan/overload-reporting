@@ -1,12 +1,7 @@
-select *
-from class.use.meeting-times
+--select *
 --from classsizes.dbo.classoverloadrules
---where schoolyear <> 2011
---where penaltytype is not null
---and penaltygroup is not null
---and lowstudents is not null
---and highstudents is not null
---and amount is not null
---and usage is not null
---where period = 8
---and coursesubject = 11
+
+SELECT OBJECT_NAME(OBJECT_ID) AS DatabaseName, last_user_update,*
+FROM sys.dm_db_index_usage_stats
+WHERE database_id = DB_ID( 'AdventureWorks')
+AND OBJECT_ID=OBJECT_ID('test')

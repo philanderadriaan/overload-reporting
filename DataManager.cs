@@ -41,7 +41,6 @@ namespace nksd_overload_reporting
                 reader.GetValues(values);
                 data.Add(values);
             }
-
             connection.Close();
             reader.Close();
         }
@@ -56,7 +55,6 @@ namespace nksd_overload_reporting
                 output += "\n";
                 Console.WriteLine(row);
             }
-
             string output_path = new Formatter().generateReportPath(output_file);
             File.WriteAllText(output_path, output);
         }
