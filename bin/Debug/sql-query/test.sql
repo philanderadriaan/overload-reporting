@@ -1,5 +1,6 @@
 select *
-from classsizes.dbo.classoverloadrules
+from class.use.meeting-times
+--from classsizes.dbo.classoverloadrules
 --where schoolyear <> 2011
 --where penaltytype is not null
 --and penaltygroup is not null
@@ -7,5 +8,5 @@ from classsizes.dbo.classoverloadrules
 --and highstudents is not null
 --and amount is not null
 --and usage is not null
-where period = 8
-and coursesubject = 11
+--where period = 8
+--and coursesubject = 11
