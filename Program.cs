@@ -29,11 +29,11 @@ namespace nksd_overload_reporting
             }
              * */
 
-            Retrieve();
+            retrieveODBC();
         }
 
 
-        private static void Retrieve()
+        private static void retrieveODBC()
         {
             string con = "DRIVER={MySQL ODBC 3.51 Driver};" +
             "SERVER=skywarddata;" +
@@ -60,7 +60,7 @@ namespace nksd_overload_reporting
             }
 
             //myReader.Close();
-            //Conn.Close();
+            Conn.Close();
         }
     }
 }
