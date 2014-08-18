@@ -35,7 +35,7 @@ namespace nksd_overload_reporting
 
         private static void Retrieve()
         {
-            string con = //"DRIVER={MySQL ODBC 3.51 Driver};" +
+            string con = "DRIVER={MySQL ODBC 3.51 Driver};" +
             "SERVER=skywarddata;" +
             "DATABASE=nkitsas;" +
             "UID=roODBCUser01;" +
@@ -46,7 +46,7 @@ namespace nksd_overload_reporting
 
             //OdbcCommand catCMD = new OdbcCommand("SELECT * FROM [Enter table name here]", Conn);
 
-            //Conn.Open();
+            Conn.Open();
 
             //OdbcDataReader myReader = catCMD.ExecuteReader();
 
