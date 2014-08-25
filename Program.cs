@@ -27,7 +27,6 @@ namespace nksd_overload_reporting
                 name += ".csv";
                 manager.write(name);
             }
-
         }
     }
 }
