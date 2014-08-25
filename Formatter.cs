@@ -27,6 +27,7 @@ namespace nksd_overload_reporting
             return folder + file_name;
         }
 
+        /*
         public string generateFileName(object[] s)
         {
             string name = "";
@@ -49,5 +50,6 @@ namespace nksd_overload_reporting
             name += ".csv";
             return name;
         }
+         * */
     }
 }

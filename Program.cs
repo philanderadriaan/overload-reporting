@@ -23,7 +23,8 @@ namespace nksd_overload_reporting
             foreach (object[] i in staff)
             {
                 Formatter f = new Formatter();
-                string name = f.generateFileName(i);
+                string name = i[0].ToString();
+                name += ".csv";
                 manager.write(name);
             }
 

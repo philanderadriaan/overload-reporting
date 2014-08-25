@@ -1,2 +1,2 @@
-select firstname, middlename, lastname
-from adsync.dbo.staff2
+select coalesce(nullif([long-name],''), [short-name]) as name
+from classoverload.dbo.staff
